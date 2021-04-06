@@ -22,22 +22,19 @@ class App extends React.Component {
   }
 
   toggleTask = (id)=> {
-    const newTask = this.state.task.map(item => {
-      if (item.id === id) {
+    const newTask = this.state.task.map(task => {
+      if (task.id === id) {
         return( {
-          ...item,
-          completed: !item.completed
+          ...task,
+          completed: !task.completed
         })
       } else{
-        return item
+        return task
       }
     })
-
     console.log(newTask)
-
-    newTask[0].completed = !newTask[0].completed;
     this.setState({
-      newTask
+      task:newTask
     });
 
   }
@@ -45,9 +42,9 @@ class App extends React.Component {
   addTodo = (todoName) => {
     this.setState({
       task: [...this.state.task, {
-        todo: todoName,
+        task: todoName,
         id: this.state.task.length,
-        purchased: false
+        completed: false
       }]
     })
   }
@@ -71,7 +68,8 @@ clearCompleted = e => {
         <div>
           <TodoForm addTodo={this.addTodo}/>
         </div>
-        <TodoList clearCompleted = {this.clearCompleted} task = {this.state.task} id = {this.state.id} completed = {this.state.completed} toggleTask = {this.toggleTask}/>
+        <TodoList clearCompleted = {this.clearCompleted} task = {this.state.task}
+         id = {this.state.id} completed = {this.state.completed} toggleTask = {this.toggleTask}/>
       </div>
     );
   }

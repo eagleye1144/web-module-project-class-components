@@ -11,9 +11,6 @@ import '../components/Todo.css'
             <div onClick = {handleClick} className = {`task${props.todo.completed ? ' completed' : ''}`}>
                 <p>{props.todo.task}</p>
               </div>
-              
-              
               )
-        
     }
     export default Todo
