@@ -1,8 +1,14 @@
 import React from 'react';
 import Todo from './Todo'
+import '../components/Todo.css'
 
 
 const TodoList = props => {
+
+    const handleClick = () =>{
+        props.clearCompleted();
+    }
+
 
         return (
         
@@ -11,7 +17,7 @@ const TodoList = props => {
                     {props.task.map( item => (
                         <Todo toggleTask = {props.toggleTask} key = {item.id} todo={item}/>
                     ))}
-                    <button className = 'clear-btn'>
+                    <button onClick={handleClick} className = 'clear-btn'>
                         Clear Finished To-do's
                     </button>
                 </div>

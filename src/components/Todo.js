@@ -1,9 +1,10 @@
 import React from 'react'
+import '../components/Todo.css'
 
     const Todo = props => {
         
             const handleClick = () => {
-                props.toggleTask();
+                props.toggleTask(props.todo.id);
 
             }
             return(
